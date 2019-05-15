@@ -1,25 +1,48 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'colors.scss';
+@import 'theme.scss';
+@import 'typography.scss';
 
-$background-color: #fefefe;
-$font-color: #4e4e4e;
 
 body {
   background-color: $background-color;
   color: $font-color;
-}
-
-.game-board {
-  border-color: black;
-  border-style: solid;
+  font-family: $font-family;
 }
 
 .col {
   border-color: black;
   border-style: solid;
+  height: 100px;
 }
 
+// unsure how to get bootstrap working properly when shrinking
+// .col-sm-2 {
+//   border-color: black;
+//   border-style: solid;
+//   height: 100px;
+// }
+.game-board {
+  border-color: black;
+  border-style: solid;
+}
 
-.nav {
-  background-color: #e5e5e5; // gray
-  font-size: 50px;
+h1 {
+  text-align: justify;
+}
+
+nav {
+  display: flex;
+  background-color: $white;
+  font-size: 20;
+  border-color: black;
+  border-style: solid;
+}
+
+nav .p {
+  display: flex;
+  background-color: $white;
+  font-size: 20;
+  border-color: black;
+  border-style: solid;
 }
