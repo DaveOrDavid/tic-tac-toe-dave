@@ -1,1 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
+
+$background-color: #fefefe;
+$font-color: #4e4e4e;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.game-board {
+  border-color: black;
+  border-style: solid;
+}
+
+.col {
+  border-color: black;
+  border-style: solid;
+}
+
+
+.nav {
+  background-color: #e5e5e5; // gray
+  font-size: 50px;
+}
