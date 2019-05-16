@@ -1,15 +1,15 @@
 'use strict'
 // config is important - contains the prod or dev URL.
 // Need it to have access to API's url
-const config = require('../templates/config.js')
+const config = require('../config.js')
 // we import `store` so we can store data between different files, such as the token.
 // ...but can be used to store OTHER THINGS LIKE WHERE PEOPLE PLAYED EACH TIC TAC TOE MOVE
-const store = require('../templates/store.js')
+const store = require('../store.js')
 
 const create = formData => {
   console.log('from api create')
   console.log('store is', store)
-  console.log('Hi here is the ', formData)
+  console.log('Heyo here is the ', formData)
 
   return $.ajax({
     url: config.apiUrl + '/examples',

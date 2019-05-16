@@ -29,6 +29,17 @@ const onCreate = event => { // event is the event, and then target is what we wa
     .catch(ui.onCreateFailure)
 }
 
+const onPlay = event => {
+  event.preventDefault()
+  const form = event.target
+  console.log('Hi here is the ', form)
+  console.log('you clicked the box')
+  const formData = getFormFields(form)
+  api.update(formData)
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateFailure)
+}
+
 const onIndex = event => { // event is the event, and then target is what we want the event to point to
   event.preventDefault()
   // const form = event.target
@@ -71,5 +82,6 @@ module.exports = {
   onIndex,
   onShow,
   onDestroy,
-  onUpdate
+  onUpdate,
+  onPlay
 }
