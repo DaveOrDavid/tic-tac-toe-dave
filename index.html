@@ -14,15 +14,24 @@
         <header>
           <h1>Tic Tac Toe</h1>
             <nav>
-              <form>
-                <input name="credentials[email]" type="text" value="Sign Up Email">
-                <input name="credentials[password]" type="password" value="an example password">
-                <input name="credentials[password_confirmation]" type="password" value="an example password">
-              </form>
-              <p>New Game<</p>
-              <p><a>Restart Game</a></p>
-              <p><a>Change Password</a></p>
-              <p><a>Logout</a></p>
+              <h2>Sign Up</h2>
+                <form>
+                  <input name="credentials[email]" type="text" value="Sign Up Email"/>
+                  <input name="credentials[password]" type="password" value="an example password"/>
+                  <input name="credentials[password_confirmation]" type="password" value="an example password"/>
+                  <input type="submit" value="Sign Up"/>
+                </form>
+
+              <h2>Sign In</h2>
+                <form id='sign-in'/>
+                  <input name="credentials[email]" type="text" value="Sign In Email"/>
+                  <input name="credentials[password]" type="password" value="an example password"/>
+                  <input type="submit" value="Sign In"/>
+                </form>
+
+                <p><a>Restart Game</a></p>
+                <p><a>Change Password</a></p>
+                <p><a>Logout</a></p>
             </nav>
         </header>
 
@@ -31,7 +40,7 @@
         <div class="game-board">
           <div class="container">
               <div class="row">
-                <div class="col"><p>text</p></div>
+                <div class="col"><p>click handler</p></div>
                 <div class="col"><p>text</p></div>
                 <div class="col"><p>text</p></div>
               </div>
