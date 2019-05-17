@@ -13,6 +13,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn) // create onSignIn event
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#start-game').on('submit', gameEvents.onStartGame)
   // game board listeners
   $('#box0').on('click', gameEvents.onPlay)
   $('#box1').on('click', gameEvents.onPlay)
