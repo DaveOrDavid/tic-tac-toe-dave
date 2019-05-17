@@ -42,7 +42,7 @@ const index = () => {
 const show = (formData) => {
   console.log('from api show')
   console.log('store is', store)
-  const id = formData.example.id
+  const id = formData.game.id
   return $.ajax({
     url: config.apiUrl + '/examples/' + id,
     method: 'GET',
@@ -56,7 +56,7 @@ const show = (formData) => {
 const destroy = (formData) => {
   console.log('from api show')
   console.log('store is', store)
-  const id = formData.example.id
+  const id = formData.game.id
   return $.ajax({
     url: config.apiUrl + '/examples/' + id,
     method: 'DELETE',
@@ -70,7 +70,7 @@ const destroy = (formData) => {
 const update = formData => {
   console.log('from api create')
   console.log('store is', store)
-  const id = formData.example.id
+  const id = formData.game.id
 
   return $.ajax({
     url: config.apiUrl + '/examples/' + id,
