@@ -2,7 +2,17 @@
 
 // responseData is whatever data our API sends back to us.
 // when we make a successful request.
-const onCreateSuccess = responseData => {
+const onPlaySuccess = responseData => {
+  event.preventDefault()
+  store.game = responseData.game
+  store.user.token = responseData.user
+  console.log('store is', store)
+  const formData = getFormFields(onPlay)
+    console.log('Player played X' + event.target)
+    console.log('Player did not play' + event.target)
+  }
+
+const onStartGameSuccess = responseData => {
   console.log('success', responseData)
 
   // in this case, the data sent back is the example
@@ -18,7 +28,7 @@ const onCreateSuccess = responseData => {
   $('#message').addClass('success')
 }
 
-const onCreateFailure = responseData => {
+const onStartGameFailure = responseData => {
   console.log('failure', responseData)
   $('#message').text('Create failed! :((')
   $('#message').removeClass()
@@ -93,6 +103,7 @@ const onUpdateFailure = responseData => {
 }
 
 module.exports = {
+  onPlaySuccess,
   onCreateSuccess,
   onCreateFailure,
   onIndexSuccess,

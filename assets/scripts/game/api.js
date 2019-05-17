@@ -71,10 +71,12 @@ const update = formData => {
   console.log('from api create')
   console.log('store is', store)
   const id = formData.game.id
+  console.log(formData.game.id)
+  boxes.push([])
 
   return $.ajax({
-    url: config.apiUrl + '/examples/' + id,
-    method: 'PATCH', // change to patch
+    url: config.apiUrl + '/game/' + id,
+    method: 'PATCH',
     data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token

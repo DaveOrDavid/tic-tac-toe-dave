@@ -8,28 +8,36 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 // 3) to update our webpage (and change what the end user sees)
 const ui = require('./ui.js')
-const boxes = ["","","","","","","","",""]
 
+let player = 'X'
+// checks for empty boxes
 const onPlay = event => {
   event.preventDefault()
-    const form = event.target
-      if ($(event.target).text() === "") {
-        console.log('Nothing in box' + event.target)
-    } else if ($(event.target).text() === "X") {
-        console.log('Player played X' + event.target)
-    } else if ($(event.target).text() === "O") {
-        console.log('Player played O' + event.target)
+  if ($(event.target).text() === '') {
+    console.log('Nothing in box, player played X' + event.target)
+    $(event.target).html(player)
+    if (player === 'X') {
+      player = 'O'
     } else {
-        console.log('last else statement' + event.target)
+      player = 'X'
     }
+    api.update()
+      .then(ui.onPlaySuccess)
+      .catch(ui.onPlayFailure)
   }
+}
 
-//   const formData = getFormFields(form)
-//   api.update(formData)
-//     .then(ui.onCreateSuccess)
-//     .catch(ui.onCreateFailure)
-// }
+const onStartGame = event => { // event is the event, and then target is what we want the event to point to
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signUp(formData)
+    .then(ui.onStartGameSuccess)
+    .catch(ui.onStartGameFailure)
+}
 
 module.exports = {
-  onPlay
+  onPlay,
+  onStartGame
+
 }
