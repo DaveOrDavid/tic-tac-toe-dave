@@ -13,15 +13,16 @@ let player = 'X'
 // checks for empty boxes
 const onPlay = event => {
   event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
   if ($(event.target).text() === '') {
-    console.log('Nothing in box, player played X' + event.target)
     $(event.target).html(player)
     if (player === 'X') {
       player = 'O'
     } else {
       player = 'X'
     }
-    api.update()
+    api.update(formData)
       .then(ui.onPlaySuccess)
       .catch(ui.onPlayFailure)
   }
@@ -31,13 +32,30 @@ const onStartGame = event => { // event is the event, and then target is what we
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  api.signUp(formData)
+  api.create(formData)
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
 }
 
+const onCheckForWin = function (onPlay) {
+  for (let i = 0; i < array.length; i++) {
+    if ((store.game.cells[0]) === (store.game.cells[1] && (store.game.cells[2]) {
+      console.log("Winner!")
+    } else if {
+      ((store.game.cells[3]) === (store.game.cells[4]) && (store.game.cells[5]) {
+      console.log("Winner!")
+    } else if {
+      ((store.game.cells[6]) === (store.game.cells[7]) && (store.game.cells[8]) {
+      console.log("Winner!")
+    } else {
+      console.log("Draw!")
+    }
+  }
+}
+}
+
 module.exports = {
   onPlay,
-  onStartGame
-
+  onStartGame,
+  onCheckForWin
 }

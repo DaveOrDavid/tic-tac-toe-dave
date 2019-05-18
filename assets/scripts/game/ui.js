@@ -1,5 +1,6 @@
 'use strict'
 
+const store = require('../store.js')
 // responseData is whatever data our API sends back to us.
 // when we make a successful request.
 const onPlaySuccess = responseData => {
@@ -7,6 +8,7 @@ const onPlaySuccess = responseData => {
   store.game = responseData.game
   store.user.token = responseData.user
   console.log('store is', store)
+
   const formData = getFormFields(onPlay)
     console.log('Player played X' + event.target)
     console.log('Player did not play' + event.target)
@@ -14,16 +16,9 @@ const onPlaySuccess = responseData => {
 
 const onStartGameSuccess = responseData => {
   console.log('success', responseData)
-
-  // in this case, the data sent back is the example
-  // we created, so we access to its text
-  const text = responseData.example.text
-
-  // we select our message, and give a user friendly message.
+  store.game = responseData.game
+  //const id = responseData.game.id
   $('#message').text('Created ' + text)
-
-  // then we remove all classes, and style our message
-  // and turn it green)
   $('#message').removeClass()
   $('#message').addClass('success')
 }
@@ -104,8 +99,8 @@ const onUpdateFailure = responseData => {
 
 module.exports = {
   onPlaySuccess,
-  onCreateSuccess,
-  onCreateFailure,
+  onStartGameSuccess,
+  onStartGameFailure,
   onIndexSuccess,
   onIndexFailure,
   onShowSuccess,

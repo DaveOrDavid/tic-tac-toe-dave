@@ -9,7 +9,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/games:id" \
         {
           "id": 1,
           "cells": ["","","","","","","","",""],
-          "over": true,
+          "over": "true",
           "player_x": {
             "id": 1,
             "email": "and@and.com"
