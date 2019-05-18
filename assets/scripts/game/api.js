@@ -9,47 +9,41 @@ const store = require('../store.js')
 const create = formData => {
   console.log('from api create')
   console.log('store is', store)
-  console.log('Heyo here is the ', formData)
-
+  console.log('Hey here is the ', formData)
   return $.ajax({
-    url: config.apiUrl + '/examples',
+    url: config.apiUrl + '/games/',
     method: 'POST',
-    data: formData,
-    // include any metadata in headers, since there could be
-    // multiple headers, we use an object (like Authorization)
     headers: {
-      Authorization: 'Token token=' + store.user.token // accessing the `user` object in store `store.user`
-      // then accessing the token located on our `user`
-    }
-    // everything we need to pass to the API
+      Authorization: 'Token token=' + store.user.token
+    }, // accessing the `user` object in store `store.user`
+    data: '' // then accessing the token located on our `user`
   })
 }
 
-const index = () => {
-  console.log('from api create')
-  console.log('store is', store)
-  return $.ajax({
-    url: config.apiUrl + '/examples',
-    method: 'GET', // If no data supplied, GET is default and implied
-    // data: formData, //no need for formData
-    headers: { // we still need auth token since we are working with auth API
-      Authorization: 'Token token=' + store.user.token
-    }
-    // everything we need to pass to the API
-  })
-}
+// const index = () => {
+//   console.log('from api create')
+//   console.log('store is', store)
+//   return $.ajax({
+//     url: config.apiUrl + '/games/',
+//     method: 'GET', // If no data supplied, GET is default and implied
+//     // data: formData, //no need for formData
+//     headers: { // we still need auth token since we are working with auth API
+//       Authorization: 'Token token=' + store.user.token
+//     }, // accessing the `user` object in store `store.user`
+//     data: '' // then accessing the token located on our `user`
+//   })
+// }
 
 const show = (formData) => {
   console.log('from api show')
   console.log('store is', store)
-  const id = formData.game.id
+  // const id = formData.game.id
   return $.ajax({
-    url: config.apiUrl + '/examples/' + id,
     method: 'GET',
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: { // we still need auth token since we are working with auth API
       Authorization: 'Token token=' + store.user.token
     }
-    // everything we need to pass to the API
   })
 }
 
@@ -58,12 +52,11 @@ const destroy = (formData) => {
   console.log('store is', store)
   const id = formData.game.id
   return $.ajax({
-    url: config.apiUrl + '/examples/' + id,
+    url: config.apiUrl + '/onStartGameSuccess/' + id,
     method: 'DELETE',
     headers: { // we still need auth token since we are working with auth API
       Authorization: 'Token token=' + store.user.token
     }
-    // everything we need to pass to the API
   })
 }
 
@@ -71,23 +64,19 @@ const update = formData => {
   console.log('from api create')
   console.log('store is', store)
   const id = formData.game.id
-  console.log(formData.game.id)
-  boxes.push([])
-
+  console.log(store.game.id)
   return $.ajax({
-    url: config.apiUrl + '/game/' + id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-    // everything we need to pass to the API
   })
 }
 
 module.exports = {
   create,
-  index,
   show,
   destroy,
   update
