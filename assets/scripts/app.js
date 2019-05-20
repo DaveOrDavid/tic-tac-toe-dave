@@ -14,6 +14,7 @@ $(() => {
   $('#change-pw').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#start-game').on('submit', gameEvents.onStartGame)
+  $('#restart').on('submit', gameEvents.onRestartGame)
   // game board listeners
   $('#cell0').on('click', gameEvents.onPlay)
   $('#cell1').on('click', gameEvents.onPlay)
