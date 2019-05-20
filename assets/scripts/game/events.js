@@ -9,6 +9,8 @@ const api = require('./api.js')
 // 3) to update our webpage (and change what the end user sees)
 const ui = require('./ui.js')
 
+const store = ['', '', '', '', '', '', '', '']
+
 let player = 'X'
 // checks for empty boxes
 const onPlay = event => {
@@ -16,16 +18,25 @@ const onPlay = event => {
   const form = event.target
   const formData = getFormFields(form)
   if ($(event.target).text() === '') {
+    api.onUpdateGame(formData)
     $(event.target).html(player)
     if (player === 'X') {
       player = 'O'
     } else {
       player = 'X'
     }
-    api.update(formData)
-      .then(ui.onPlaySuccess)
-      .catch(ui.onPlayFailure)
+    store.push(formData)
+    onUpdateGame()
   }
+}
+
+const onUpdateGame = event => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.update(store)
+    .then(ui.onPlaySuccess)
+    .catch(ui.onPlayFailure)
 }
 
 const onStartGame = event => { // event is the event, and then target is what we want the event to point to
@@ -38,24 +49,26 @@ const onStartGame = event => { // event is the event, and then target is what we
 }
 
 const onCheckForWin = function (onPlay) {
-  for (let i = 0; i < array.length; i++) {
-    if ((store.game.cells[0]) === (store.game.cells[1] && (store.game.cells[2]) {
-      console.log("Winner!")
-    } else if {
-      ((store.game.cells[3]) === (store.game.cells[4]) && (store.game.cells[5]) {
-      console.log("Winner!")
-    } else if {
-      ((store.game.cells[6]) === (store.game.cells[7]) && (store.game.cells[8]) {
-      console.log("Winner!")
-    } else {
-      console.log("Draw!")
-    }
-  }
+  // for (let i = 0; i < array.length; i++) {
+  if (((store.cells[0]) === (store.cells[1])) && (store.cells[2])) {
+    console.log("Winner!")
+  } else if {
+  (((store.cells[3]) === (store.cells[4])) && (store.cells[5])) {
+    console.log("Winner!")
+  } else if {
+  (((store.cells[6]) === (store.cells[7])) && (store.cells[8])) {
+    console.log("Winner!")
+  } else {
+    console.log("Draw!")
+}
+}
 }
 }
 
 module.exports = {
   onPlay,
   onStartGame,
-  onCheckForWin
+  onCheckForWin,
+  onUpdateGame,
+  store
 }

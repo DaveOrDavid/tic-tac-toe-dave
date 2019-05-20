@@ -63,8 +63,9 @@ const destroy = (formData) => {
 const update = formData => {
   console.log('from api create')
   console.log('store is', store)
-  const id = formData.game.id
+  const id = store.game.id
   console.log(store.game.id)
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
