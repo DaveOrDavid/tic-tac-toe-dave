@@ -9,16 +9,16 @@ const onPlaySuccess = responseData => {
   store.user.token = responseData.user
   console.log('store is', store)
 
-  const formData = getFormFields(onPlay)
-    console.log('Player played X' + event.target)
-    console.log('Player did not play' + event.target)
-  }
+  // const formData = getFormFields(onPlay)
+  console.log('Player played X' + event.target)
+  console.log('Player did not play' + event.target)
+}
 
 const onStartGameSuccess = responseData => {
   console.log('success', responseData)
   store.game = responseData.game
-  //const id = responseData.game.id
-  $('#message').text('Created ' + text)
+  // const id = responseData.game.id
+  $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')
 }
