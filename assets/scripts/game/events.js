@@ -13,13 +13,8 @@ const store = require('../store.js')
 // const game = ['', '', '', '', '', '', '', '', '']
 
 let player = 'X'
-// checks for empty boxes
 const onPlay = event => {
-  // event.preventDefault()
-  // const form = event.target
-  // const formData = getFormFields(form)
   if ($(event.target).text() === '') {
-    // api.onUpdateGame(formData)
     $(event.target).html(player)
     const index = $(event.target).data('cell-index')
     store.game.cells[index] = player
@@ -32,6 +27,7 @@ const onPlay = event => {
       player = 'X'
     }
   }
+  onCheckForWin()
 }
 
 const onStartGame = event => { // event is the event, and then target is what we want the event to point to
@@ -43,23 +39,40 @@ const onStartGame = event => { // event is the event, and then target is what we
     .catch(ui.onStartGameFailure)
 }
 
-const onCheckForWin = function (onPlay) {
-  for (let i = 0; i < store.game.cells.length; i++) {
-    if (((store.game[0]) === (store.game[1])) && (store.game[2])) {
-      console.log('Winner!')
-    } else if (((store.game[3]) === (store.game[4])) && (store.game[5])) {
-      console.log('Winner!')
-    } else if (((store.game[6]) === (store.game[7])) && (store.game[8])) {
-      console.log('Winner!')
-    } else {
-      console.log('Draw!')
-    }
+const onRestartGame = event => { // event is the event, and then target is what we want the event to point to
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.create(formData)
+    .then(ui.onStartGameSuccess)
+    .catch(ui.onStartGameFailure)
+}
+
+const onCheckForWin = function (player) {
+  if (((store.game.cells[0]) === (store.game.cells[1])) && (store.game.cells[2])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[3]) === (store.game.cells[4])) && (store.game.cells[5])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[6]) === (store.game.cells[7])) && (store.game.cells[8])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[0]) === (store.game.cells[3])) && (store.game.cells[6])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[1]) === (store.game.cells[4])) && (store.game.cells[7])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[2]) === (store.game.cells[5])) && (store.game.cells[8])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[0]) === (store.game.cells[4])) && (store.game.cells[8])) {
+    console.log('Winner!')
+  } else if (((store.game.cells[2]) === (store.game.cells[4])) && (store.game.cells[6])) {
+    console.log('Winner!')
+  } else {
+    console.log('Draw!')
   }
 }
 
 module.exports = {
   onPlay,
   onStartGame,
-  onCheckForWin
-  //game
+  onCheckForWin,
+  onRestartGame
 }
