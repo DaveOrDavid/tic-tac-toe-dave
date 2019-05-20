@@ -60,18 +60,25 @@ const destroy = (formData) => {
   })
 }
 
-const update = formData => {
+const update = function (index, value) {
   console.log('from api create')
   console.log('store is', store)
-  const id = store.game.id
   console.log(store.game.id)
 
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
-    data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      "game": {
+        "cell": {
+          "index": index,
+          "value": value
+        },
+        "over": false
+      }
     }
   })
 }
