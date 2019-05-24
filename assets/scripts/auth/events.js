@@ -34,6 +34,7 @@ const onChangePassword = event => { // event is the event, and then target is wh
 
 const onSignOut = event => { // event is the event, and then target is what we want the event to point to
   event.preventDefault()
+  $('.col-3').html('')
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)

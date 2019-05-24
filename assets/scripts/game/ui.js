@@ -12,6 +12,7 @@ const onPlaySuccess = responseData => {
 
 const onStartGameSuccess = responseData => {
   store.game = responseData.game
+  store.currentPlayer = 'X' // variable to store 'X' as first player
   $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')

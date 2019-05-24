@@ -46,7 +46,7 @@ const destroy = (formData) => {
   })
 }
 
-const update = function (index, value) {
+const update = function (index) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -57,9 +57,9 @@ const update = function (index, value) {
       "game": {
         "cell": {
           "index": index,
-          "value": value
+          "value": store.currentPlayer
         },
-        "over": false
+        "over": store.game.over
       }
     }
   })
