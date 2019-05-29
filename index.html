@@ -14,51 +14,51 @@
         <header>
           <h1>Tic Tac Toe</h1>
             <nav>
-              <h3>Sign Up</h3>
-                <form id='sign-up'>
-                  <input name="credentials[email]" type="text" value="Sign Up Email">
-                  <input name="credentials[password]" type="password" value="password">
-                  <input name="credentials[password_confirmation]" type="password" value="password">
+              <form id='sign-up'>
+                <h3>Sign Up</h3>
+                <!-- <form id='sign-up'> // wrapped for jQuery hide()-->
+                  <input name="credentials[email]" type="text" placeholder='Enter New E-mail'>
+                  <input name="credentials[password]" type="password" placeholder='Password'>
+                  <input name="credentials[password_confirmation]" type="password" placeholder='Confirm Password'>
                   <input type="submit" value="Sign Up">
-                </form>
-
-              <h3>Sign In</h3>
-                <form id='sign-in'>
-                  <input name="credentials[email]" type="text" value="Sign In Email">
-                  <input name="credentials[password]" type="password" value="password">
+              </form>
+              <form id='sign-in'>
+                <h3>Sign In</h3>
+                <!-- <form id='sign-in'> // wrapped for jQuery hide()-->
+                  <input name="credentials[email]" type="text" placeholder='Email'>
+                  <input name="credentials[password]" type="password" placeholder='Password'>
                   <input type="submit" value="Sign In">
-                </form>
+              </form>
 
-              <h3>Change Password</h3>
-                <form id='change-pw'>
+            <div class='in-game'>
+              <form id='change-pw'>
+                <h3>Change Password</h3>
+                <!-- <form id='change-pw'> // wrapped for jQuery hide()-->
                   <input type="password" name="passwords[old]" placeholder="Old Password">
                   <input type="password" name="passwords[new]" placeholder="New Password">
                   <input type="submit" value="Change Password">
-                </form>
-
-              <h3>Sign Out</h3>
-                <form id='sign-out'>
+              </form>
+              <form id='sign-out'>
+                <h3>Sign Out</h3>
+                <!-- <form id='sign-out'> // wrapped for jQuery hide()-->
                   <input type="submit" value="Sign Out"/>
-                </form>
-
-              <h3>Start Game or Restart</h3>
-                <form id='start-game'>
+              </form>
+              <form id='start-game'>
+                <h3>Start Game or Restart</h3>
+                <!-- <form id='start-game'> // wrapped for jQuery hide()-->
                   <input type="submit" value="Start Game"/>
-                </form>
-
+              </form>
+              <form id='game-stats'>
               <h3>Player Stats</h3>
-                <form id='game-stats'>
+                <!-- <form id='game-stats'> // wrapped for jQuery hide()-->
                   <input type="submit" value="Game Stats"/>
-                </form>
-                <!-- <h3>Restart Game</h3>
-                <form id='restart'>
-                  <input type="submit" value="Restart Game"/>
-                </form> -->
+              </form>
+            </div>
             </nav>
         </header>
-      <div>
-        <h3 id="message">Sign Up to Begin Playing</h3>
-      </div>
+        <div class='message-block'> <!-- added div class to modify CSS so block size stays constant -->
+          <h3 id="message">Sign Up to Begin Playing</h3>
+        </div>
       <main>
           <div class="gameboard">
             <div class="container">

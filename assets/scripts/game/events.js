@@ -23,7 +23,8 @@ const switchPlayers = function () {
 }
 
 const onPlay = event => {
-  if ($(event.target).text() === '') {
+  if ($(event.target).text() === '' && store.game.over === false) {
+    // added conditional to even.target.text with store.game.over so game board can not be played after win.
     $(event.target).html(store.currentPlayer)
     const index = $(event.target).data('cell-index')
     store.game.cells[index] = store.currentPlayer
@@ -37,7 +38,6 @@ const onPlay = event => {
 
 const onStartGame = event => {
   event.preventDefault()
-  $('.col-3').html('')
   api.create()
     .then(ui.onStartGameSuccess)
     .catch(ui.onStartGameFailure)
@@ -58,7 +58,7 @@ const onCheckForWin = function () {
   (store.game.cells[1] !== '' && (store.game.cells[1] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[7]) ||
   (store.game.cells[2] !== '' && (store.game.cells[2] === store.game.cells[5]) && store.game.cells[5] === store.game.cells[8]) ||
   (store.game.cells[0] !== '' && (store.game.cells[0] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[8]) ||
-  (store.game.cells[2] !== '' && (store.game.cells[2] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[8])) {
+  (store.game.cells[2] !== '' && (store.game.cells[2] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[6])) {
     $('#user-change').text(store.currentPlayer + ' is the winner!')
     store.game.over = true
   } else if (store.game.cells[0] !== '' && store.game.cells[1] !== '' && store.game.cells[2] !== '' && store.game.cells[3] !== '' && store.game.cells[4] !== '' && store.game.cells[5] !== '' && store.game.cells[6] !== '' && store.game.cells[7] !== '' && store.game.cells[8]) {

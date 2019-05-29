@@ -28,6 +28,14 @@ h1 {
   text-align: justify;
 }
 
+.in-game {
+  display: none;
+}
+
+.message-block {
+  min-height: 33px;
+}
+
 nav {
 //  display: flex;
   background-color: $white;

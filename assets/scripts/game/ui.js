@@ -16,15 +16,17 @@ const onStartGameSuccess = responseData => {
   $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#user-change').empty()
+  $('.col-3').html('')
 }
 
 const onStartGameFailure = responseData => {
   $('#message').text('Create failed! :((')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#user-change').empty()
+  $('.col-3').html('')
 }
-//  $( "div.demo-container" ).text( "<p>This is a test.</p>" )
-// get the array length of the request.
 
 const onIndexSuccess = responseData => {
   $('#message').html('You\'ve played ' + responseData.games.length + ' games')
