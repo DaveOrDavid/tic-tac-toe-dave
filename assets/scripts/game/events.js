@@ -28,6 +28,7 @@ const onPlay = event => {
   // if (responseData.user === '') { // current idea for trying to stop errors from clicking game board when not signed in.
   if (store.canPlay === false) {
     ui.onClickStartRemindSuccess()
+    // if statements based on signing in or not
   } else {
     if ($(event.target).text() === '' && store.game.over === false) {
       // added conditional to even.target.text with store.game.over
