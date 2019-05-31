@@ -9,6 +9,7 @@ const api = require('./api.js')
 // 3) to update our webpage (and change what the end user sees)
 const ui = require('./ui.js')
 const store = require('../store.js')
+// store.game.over = false
 store.canPlay = false
 // store.canPlay sets game to false so nothing can be played until set as true
 
@@ -26,6 +27,7 @@ const switchPlayers = function () {
 
 const onPlay = event => {
   // if (responseData.user === '') { // current idea for trying to stop errors from clicking game board when not signed in.
+  console.log('store.canPlay is ' + store.canPlay)
   if (store.canPlay === false) {
     ui.onClickStartRemindSuccess()
     // if statements based on signing in or not
