@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-const playerChange = require('./events.js')
+// const playerChange = require('./events.js')
 // responseData is whatever data our API sends back to us.
 // when we make a successful request.
 const onPlaySuccess = responseData => {

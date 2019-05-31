@@ -47,8 +47,7 @@ const destroy = (formData) => {
 }
 
 const update = function (index, value) {
-
-const update = function (index) {
+  // const update = function (index) {
 
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
@@ -57,16 +56,15 @@ const update = function (index) {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      "game": {
-        "cell": {
-          "index": index,
-          "value": value
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
         },
-        "over": false
-          "value": store.currentPlayer
-        },
-        "over": store.game.over
-      }
+        'over': false,
+        'value': store.currentPlayer
+      },
+      'over': store.game.over
     }
   })
 }
