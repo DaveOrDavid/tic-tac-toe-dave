@@ -21,7 +21,23 @@ const onStartGameSuccess = responseData => {
 }
 
 const onStartGameFailure = responseData => {
-  $('#message').text('Create failed! :((')
+  $('#message').text('Create failed!')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  $('#user-change').empty()
+  $('.col-3').html('')
+}
+// ClickStartRemind functions part of store.canPlay to stop playing from board
+const onClickStartRemindSuccess = responseData => {
+  $('#message').text('Click Start Game to begin playing')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('#user-change').empty()
+  $('.col-3').html('')
+}
+
+const onClickStartRemindFailure = responseData => {
+  $('#message').text('Click Start Game failure')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('#user-change').empty()
@@ -71,5 +87,7 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onClickStartRemindSuccess,
+  onClickStartRemindFailure
 }

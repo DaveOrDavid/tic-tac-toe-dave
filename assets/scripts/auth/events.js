@@ -4,6 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 // '../' used to pop up one directory area
 const api = require('./api.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 const onSignUp = event => { // event is the event, and then target is what we want the event to point to
   event.preventDefault()
@@ -29,6 +30,7 @@ const onChangePassword = event => { // event is the event, and then target is wh
   const formData = getFormFields(form)
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
+    .then(store.canPlay = false)
     .catch(ui.onChangePasswordFailure)
 }
 

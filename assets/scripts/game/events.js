@@ -9,6 +9,8 @@ const api = require('./api.js')
 // 3) to update our webpage (and change what the end user sees)
 const ui = require('./ui.js')
 const store = require('../store.js')
+store.canPlay = false
+// store.canPlay sets game to false so nothing can be played until set as true
 
 const switchPlayers = function () {
   if (store.game.over === false) {
@@ -23,16 +25,22 @@ const switchPlayers = function () {
 }
 
 const onPlay = event => {
-  if ($(event.target).text() === '' && store.game.over === false) {
-    // added conditional to even.target.text with store.game.over so game board can not be played after win.
-    $(event.target).html(store.currentPlayer)
-    const index = $(event.target).data('cell-index')
-    store.game.cells[index] = store.currentPlayer
-    onCheckForWin()
-    api.update(index)
-      .then(ui.onUpdateSuccess)
-      .then(switchPlayers)
-      .catch(ui.onUpdateFailure)
+  // if (responseData.user === '') { // current idea for trying to stop errors from clicking game board when not signed in.
+  if (store.canPlay === false) {
+    ui.onClickStartRemindSuccess()
+  } else {
+    if ($(event.target).text() === '' && store.game.over === false) {
+      // added conditional to even.target.text with store.game.over
+      // so game board can not be played after win.
+      $(event.target).html(store.currentPlayer)
+      const index = $(event.target).data('cell-index')
+      store.game.cells[index] = store.currentPlayer
+      onCheckForWin()
+      api.update(index)
+        .then(ui.onUpdateSuccess)
+        .then(switchPlayers)
+        .catch(ui.onUpdateFailure)
+    }
   }
 }
 
@@ -40,6 +48,9 @@ const onStartGame = event => {
   event.preventDefault()
   api.create()
     .then(ui.onStartGameSuccess)
+    .then(store.canPlay = true)
+    // clicking StartGame should flip store.canPlay to true
+    // allowing else function of onPlay to run
     .catch(ui.onStartGameFailure)
 }
 
