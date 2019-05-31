@@ -46,11 +46,10 @@ const destroy = (formData) => {
   })
 }
 
-<<<<<<< HEAD
 const update = function (index, value) {
-=======
+
 const update = function (index) {
->>>>>>> development
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',

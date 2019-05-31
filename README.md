@@ -1,7 +1,5 @@
 Project title: Tic Tac Toe Dave
 
-<<<<<<< HEAD
-
  Complete the repository Description field and Website field with a meaningful sentence description of the application and link to the live URL github image
  List technologies used
 Technologies used:
@@ -22,7 +20,6 @@ Technologies used:
 
  Wireframe
  https://app.moqups.com/hNo9S7FEYm/edit/page/ad64222d5
-=======
 Techologies Used:
 JavaScript
 jQuery
@@ -41,4 +38,3 @@ User Stories:
 v2.0 fixes would include the application actually working properly, such as message updates after every action, showing game over/winner messages and CSS styling updates.
 
 Wireframe https://app.moqups.com/hNo9S7FEYm/edit/page/ad64222d5
->>>>>>> development
