@@ -61,15 +61,12 @@ const update = function (index) {
       "game": {
         "cell": {
           "index": index,
-<<<<<<< HEAD
           "value": value
         },
         "over": false
-=======
           "value": store.currentPlayer
         },
         "over": store.game.over
->>>>>>> development
       }
     }
   })
