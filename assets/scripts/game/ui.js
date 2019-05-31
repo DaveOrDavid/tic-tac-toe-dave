@@ -12,18 +12,37 @@ const onPlaySuccess = responseData => {
 
 const onStartGameSuccess = responseData => {
   store.game = responseData.game
+  store.currentPlayer = 'X' // variable to store 'X' as first player
   $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#user-change').empty()
+  $('.col-3').html('')
 }
 
 const onStartGameFailure = responseData => {
-  $('#message').text('Create failed! :((')
+  $('#message').text('Create failed!')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#user-change').empty()
+  $('.col-3').html('')
 }
-//  $( "div.demo-container" ).text( "<p>This is a test.</p>" )
-// get the array length of the request.
+// ClickStartRemind functions part of store.canPlay to stop playing from board
+const onClickStartRemindSuccess = responseData => {
+  $('#message').text('Click Start Game to begin playing')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('#user-change').empty()
+  $('.col-3').html('')
+}
+
+const onClickStartRemindFailure = responseData => {
+  $('#message').text('Click Start Game failure')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  $('#user-change').empty()
+  $('.col-3').html('')
+}
 
 const onIndexSuccess = responseData => {
   $('#message').html('You\'ve played ' + responseData.games.length + ' games')
@@ -68,5 +87,7 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onClickStartRemindSuccess,
+  onClickStartRemindFailure
 }
