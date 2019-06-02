@@ -92,11 +92,7 @@ const onDestroyFailure = () => {
 }
 
 const onUpdateSuccess = responseData => {
-  if (store.game.over === true) {
-    $('#message').text('Game over! Click Start Game to play again')
-  } else {
-    $('#message').text('')
-  }
+  $('#message').text('')
 }
 
 const onUpdateFailure = responseData => {

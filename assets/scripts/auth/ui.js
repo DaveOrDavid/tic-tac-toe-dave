@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  // console.log('success', responseData)
+  console.log('success', responseData)
   $('#user-change').text('Sign up successful!')
   $('#user-change').removeClass()
   $('#user-change').addClass('success')
@@ -80,14 +80,10 @@ const onSignOutSuccess = () => {
   $('#sign-up').trigger('reset')
   $('#user-change').empty()
   $('.col-3').html('')
-  store.game.over = true
+  store.game = true
   // store.user = ''
   // store.canPlay = false
   // store.isPlaying = true
-
-  // setTimeout(function () {
-  //   $('#message').hide()
-  // }, 6000)
 }
 
 const onSignOutFailure = () => {

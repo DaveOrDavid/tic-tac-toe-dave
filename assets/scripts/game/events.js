@@ -3,11 +3,11 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
-// store.isPlaying = false
-// store.isPlaying sets game to false until StartGame is clicked
+
 store.canPlay = false
 // store.canPlay sets game to false until SignIn is clicked
 store.user = false
+store.game = false
 
 const switchPlayers = function () {
   if (store.game.over === false) {
@@ -23,8 +23,6 @@ const switchPlayers = function () {
 
 const onPlay = event => {
   event.preventDefault()
-  // if (responseData.user === '') { // current idea for trying to stop errors from clicking game board when not signed in.
-  // console.log('store.canPlay is ' + store.canPlay)
   // console.log('store.canPlay is ' + store.canPlay)
   // console.log('store is ' + store)
   // console.log('store.game.over is ' + store.game.over)
@@ -82,13 +80,13 @@ const onCheckForWin = function () {
   (store.game.cells[2] !== '' && (store.game.cells[2] === store.game.cells[5]) && store.game.cells[5] === store.game.cells[8]) ||
   (store.game.cells[0] !== '' && (store.game.cells[0] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[8]) ||
   (store.game.cells[2] !== '' && (store.game.cells[2] === store.game.cells[4]) && store.game.cells[4] === store.game.cells[6])) {
-    $('#user-change').text(store.currentPlayer + ' is the winner!')
+    $('#user-change').text(store.currentPlayer + ' is the winner! Click Start Game to play again')
     // $('.col-3').off('click')
     store.game.over = true
     // store.canPlay = false
     // store.isPlaying = false
   } else if (store.game.cells[0] !== '' && store.game.cells[1] !== '' && store.game.cells[2] !== '' && store.game.cells[3] !== '' && store.game.cells[4] !== '' && store.game.cells[5] !== '' && store.game.cells[6] !== '' && store.game.cells[7] !== '' && store.game.cells[8]) {
-    $('#user-change').text('It\'s a Draw!')
+    $('#user-change').text('It\'s a Draw! Click Start Game to play again')
     // $('.col-3').off('click')
     store.game.over = true
     // store.canPlay = false
