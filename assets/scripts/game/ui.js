@@ -9,15 +9,15 @@ const onPlaySuccess = responseData => {
   store.game = responseData.game
   store.user.token = responseData.user
   $('#message').text('')
-  console.log('onPlaySuccess ran' + ' responseData.user is ' + responseData.user + ' responseData.game is ' + responseData.game)
-  console.log('store is', store)
+  // console.log('onPlaySuccess ran' + ' responseData.user is ' + responseData.user + ' responseData.game is ' + responseData.game)
+  // console.log('store is', store)
   // so far nothing comes from onPlaySuccess, not used at all.
 }
 
 const onStartGameSuccess = responseData => {
   store.game = responseData.game
   store.currentPlayer = 'X' // variable to store 'X' as first player
-  console.log('store is', store)
+  // console.log('store is', store)
   $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -34,7 +34,7 @@ const onStartGameFailure = responseData => {
 }
 // ClickStartRemind functions part of store.canPlay to stop playing from board
 const onClickSignInRemindSuccess = responseData => {
-  console.log('onClickSignInRemindSuccess has run')
+  // console.log('onClickSignInRemindSuccess has run')
   $('#message').text('Sign In to Begin Playing')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -51,7 +51,7 @@ const onClickSignInRemindSuccess = responseData => {
 // }
 //
 const onClickStartGameRemindSuccess = responseData => {
-  console.log('onClickStartGameRemindSuccess has run')
+  // console.log('onClickStartGameRemindSuccess has run')
   $('#message').text('Click Start Game to begin a game')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -67,7 +67,7 @@ const onClickStartGameRemindSuccess = responseData => {
 // }
 
 const onIndexSuccess = responseData => {
-  console.log('store is', store)
+  // console.log('store is', store)
   $('#message').html('You\'ve played ' + responseData.games.length + ' games')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -92,15 +92,18 @@ const onDestroyFailure = () => {
 }
 
 const onUpdateSuccess = responseData => {
-  console.log('store is', store)
-  $('#message').text('')
+  if (store.game.over === true) {
+    $('#message').text('Game over! Click Start Game to play again')
+  } else {
+    $('#message').text('')
+  }
 }
 
 const onUpdateFailure = responseData => {
   $('#message').text('Failed to update')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('onUpdateFailure ran')
+  // console.log('onUpdateFailure ran')
 }
 
 module.exports = {

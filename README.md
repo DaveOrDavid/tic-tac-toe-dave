@@ -1,25 +1,8 @@
 Project title: Tic Tac Toe Dave
 
- Complete the repository Description field and Website field with a meaningful sentence description of the application and link to the live URL github image
- List technologies used
-Technologies used:
-- JavaScript
-- jQuery
-- Bootstrap
-- Authentication and Game APIs
-- SCSS
+Wireframe album
+https://imgur.com/a/NhTeiZU
 
- Document your planning and tell a story about your development process and problem-solving strategy.
-
- The Tic Tac Toe application planning process started with a SPA responsive site optimized for all display sizes.
- Wireframing included two pages, but quickly changed to one page with login details on the same page as the game itself.
- The game-board was designed with bootstrap for simplicity when resizing
- jQuery event listeners were placed on each box to listen for user clicks, and then set off a chain of functions depending on what the game player clicked.
-
- v2.0 fixes would include the application actually working properly, such as message updates after every action, showing game over/winner messages and CSS styling updates.
-
- Wireframe
- https://app.moqups.com/hNo9S7FEYm/edit/page/ad64222d5
 Techologies Used:
 JavaScript
 jQuery
@@ -27,14 +10,31 @@ Bootstrap
 Authentication and Game APIs
 SCSS
 
-The Tic Tac Toe application planning process started with a SPA responsive site optimized for all display sizes. Wireframing included two pages, but quickly changed to one page with login details on the same page as the game itself. The game-board was designed with bootstrap for simplicity when resizing jQuery event listeners were placed on each box to listen for user clicks, and then set off a chain of functions depending on what the game player clicked.
-
 User Stories:
 -- As a user, I want them to feel the game does not require detailed instructions
 -- As a software engineer, I want users to feel impressed by the modern tools used
 -- As a software engineer, I want this game to reliably work without crashing
 -- As a product owner, I want to be confident to answer questions about why I chose to build
 
-v2.0 fixes would include the application actually working properly, such as message updates after every action, showing game over/winner messages and CSS styling updates.
+The Tic Tac Toe application planning process started with a SPA responsive site optimized for all display sizes. Wireframing included two pages, but quickly changed to one page with login details on the same page as the game itself.
 
-Wireframe https://app.moqups.com/hNo9S7FEYm/edit/page/ad64222d5
+The game-board was designed with bootstrap for simplicity when resizing jQuery event listeners were placed on each box to listen for user clicks, and then set off a chain of functions depending on what the game player clicked.
+
+For updates made on the resubmission, I made heavier use of the store{} object.
+Store.user to reference if I user had signed up/signed in, and I created store.canPlay
+as a comparison from signing in and clicking Start Game. Both would update on
+successful API actions.
+
+Additionally, forms would clear and pre-population was removed. Store.xxx references
+were used for comparing to display the correct user messages
+
+v3.0 plans for Tic Tac Toe are a much heavier CSS focus, as this is not the
+most visually pleasing game. I'd like to leverge setTimeout functions as well.
+
+Reflections
+I feel I can read and interpret parts of JavaScript better than I did on the
+first submission of the project. During v2.0, I was able to see how code was structured
+and how it interacted with different parts of the project. For writing JS, I
+feel that I can write a version that is messy, but can "work." I'm looking
+forward to future iterations that can be DRYer in JS and more visually
+appealing in CSS.
