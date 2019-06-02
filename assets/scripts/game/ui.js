@@ -8,11 +8,16 @@ const onPlaySuccess = responseData => {
   event.preventDefault()
   store.game = responseData.game
   store.user.token = responseData.user
+  $('#message').text('')
+  console.log('onPlaySuccess ran' + ' responseData.user is ' + responseData.user + ' responseData.game is ' + responseData.game)
+  console.log('store is', store)
+  // so far nothing comes from onPlaySuccess, not used at all.
 }
 
 const onStartGameSuccess = responseData => {
   store.game = responseData.game
   store.currentPlayer = 'X' // variable to store 'X' as first player
+  console.log('store is', store)
   $('#message').text('Created new game!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -28,23 +33,40 @@ const onStartGameFailure = responseData => {
   $('.col-3').html('')
 }
 // ClickStartRemind functions part of store.canPlay to stop playing from board
-const onClickStartRemindSuccess = responseData => {
-  $('#message').text('Click Start Game to begin playing')
+const onClickSignInRemindSuccess = responseData => {
+  console.log('store is', store)
+  $('#message').text('Sign Up or Sign In to Begin Playing')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#user-change').empty()
-  $('.col-3').html('')
+  // $('.col-3').html('')
 }
 
-const onClickStartRemindFailure = responseData => {
-  $('#message').text('Click Start Game failure')
+const onClickSignInRemindFailure = responseData => {
+  $('#message').text('Click Sign In game failure')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('#user-change').empty()
-  $('.col-3').html('')
+  // $('.col-3').html('')
+}
+
+const onClickStartGameRemindSuccess = responseData => {
+  $('#message').text('Click Start Game to begin a game')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('#user-change').empty()
+}
+
+const onClickStartGameRemindFailure = responseData => {
+  $('#message').text('Click start game failure')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  $('#user-change').empty()
+  // $('.col-3').html('')
 }
 
 const onIndexSuccess = responseData => {
+  console.log('store is', store)
   $('#message').html('You\'ve played ' + responseData.games.length + ' games')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -69,6 +91,7 @@ const onDestroyFailure = () => {
 }
 
 const onUpdateSuccess = responseData => {
+  console.log('store is', store)
   $('#message').text('')
 }
 
@@ -76,6 +99,7 @@ const onUpdateFailure = responseData => {
   $('#message').text('Failed to update')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  console.log('onUpdateFailure ran')
 }
 
 module.exports = {
@@ -88,6 +112,8 @@ module.exports = {
   onDestroyFailure,
   onUpdateSuccess,
   onUpdateFailure,
-  onClickStartRemindSuccess,
-  onClickStartRemindFailure
+  onClickSignInRemindSuccess,
+  onClickSignInRemindFailure,
+  onClickStartGameRemindSuccess,
+  onClickStartGameRemindFailure
 }

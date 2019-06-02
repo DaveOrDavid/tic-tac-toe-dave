@@ -32,6 +32,7 @@ const changePassword = formData => {
 }
 
 const signOut = () => {
+  console.log('from api signOut')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
