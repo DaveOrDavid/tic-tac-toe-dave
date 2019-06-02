@@ -34,36 +34,37 @@ const onStartGameFailure = responseData => {
 }
 // ClickStartRemind functions part of store.canPlay to stop playing from board
 const onClickSignInRemindSuccess = responseData => {
-  console.log('store is', store)
-  $('#message').text('Sign Up or Sign In to Begin Playing')
+  console.log('onClickSignInRemindSuccess has run')
+  $('#message').text('Sign In to Begin Playing')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#user-change').empty()
   // $('.col-3').html('')
 }
-
-const onClickSignInRemindFailure = responseData => {
-  $('#message').text('Click Sign In game failure')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  $('#user-change').empty()
-  // $('.col-3').html('')
-}
-
+//
+// const onClickSignInRemindFailure = responseData => {
+//   $('#message').text('Click Sign In game failure')
+//   $('#message').removeClass()
+//   $('#message').addClass('failure')
+//   $('#user-change').empty()
+//   // $('.col-3').html('')
+// }
+//
 const onClickStartGameRemindSuccess = responseData => {
+  console.log('onClickStartGameRemindSuccess has run')
   $('#message').text('Click Start Game to begin a game')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#user-change').empty()
 }
-
-const onClickStartGameRemindFailure = responseData => {
-  $('#message').text('Click start game failure')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  $('#user-change').empty()
-  // $('.col-3').html('')
-}
+//
+// const onClickStartGameRemindFailure = responseData => {
+//   $('#message').text('Click start game failure')
+//   $('#message').removeClass()
+//   $('#message').addClass('failure')
+//   $('#user-change').empty()
+//   // $('.col-3').html('')
+// }
 
 const onIndexSuccess = responseData => {
   console.log('store is', store)
@@ -113,7 +114,6 @@ module.exports = {
   onUpdateSuccess,
   onUpdateFailure,
   onClickSignInRemindSuccess,
-  onClickSignInRemindFailure,
-  onClickStartGameRemindSuccess,
-  onClickStartGameRemindFailure
+  onClickStartGameRemindSuccess
+  // onClickStartGameRemindFailure
 }

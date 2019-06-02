@@ -4,21 +4,21 @@ const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   console.log('success', responseData)
-  $('#message').text('Signed up successfully!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#user-change').text('Sign up successful!')
+  $('#user-change').removeClass()
+  $('#user-change').addClass('success')
   $('#sign-up').trigger('reset')
   $('.in-game').hide()
-  $('#user-change').empty()
+  // $('#user-change').empty()
   $('.col-3').html('')
 }
 
 const onSignUpFailure = responseData => {
-  $('#message').text('Sign up failed!')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#user-change').text('Sign up failed!')
+  $('#user-change').removeClass()
+  $('#user-change').addClass('failure')
   $('#sign-up').trigger('reset')
-  $('#user-change').empty()
+  // $('#user-change').empty()
   $('.col-3').html('')
 }
 
@@ -33,7 +33,7 @@ const onSignInSuccess = responseData => {
   $('#user-change').empty()
   $('.col-3').html('')
   store.user = responseData.user
-  store.canPlay = true
+  // store.canPlay = true
   console.log('onSignInSuccess ran')
   console.log('store is', store)
 
@@ -80,9 +80,14 @@ const onSignOutSuccess = () => {
   $('#sign-up').trigger('reset')
   $('#user-change').empty()
   $('.col-3').html('')
-  // store.user.token = ''
-  store.canPlay = false
+  store.game.over = true
+  // store.user = ''
+  // store.canPlay = false
   // store.isPlaying = true
+
+  // setTimeout(function () {
+  //   $('#message').hide()
+  // }, 6000)
 }
 
 const onSignOutFailure = () => {

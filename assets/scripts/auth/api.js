@@ -31,11 +31,12 @@ const changePassword = formData => {
   })
 }
 
-const signOut = () => {
-  console.log('from api signOut')
+const signOut = formData => {
+  // console.log('from api signOut')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
+    data: formData,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

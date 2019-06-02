@@ -5,6 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+store.user = ''
 
 const onSignUp = event => { // event is the event, and then target is what we want the event to point to
   event.preventDefault()
@@ -41,6 +42,8 @@ const onSignOut = event => { // event is the event, and then target is what we w
   event.preventDefault()
   api.signOut()
     .then(ui.onSignOutSuccess)
+    .then(store.canPlay = false)
+    .then(store.user = false)
     .catch(ui.onSignOutFailure)
 }
 
