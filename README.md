@@ -11,10 +11,10 @@ Authentication and Game APIs
 SCSS
 
 User Stories:
--- As a user, I want them to feel the game does not require detailed instructions
--- As a software engineer, I want users to feel impressed by the modern tools used
--- As a software engineer, I want this game to reliably work without crashing
--- As a product owner, I want to be confident to answer questions about why I chose to build
+-- As a game player, I want to clearly see what I need to do next
+-- As a mobile user, I want to be able to play this on a tablet
+-- As a player, I want to have a simple layout
+-- As a player, I want to know how many times I have played the game.
 
 The Tic Tac Toe application planning process started with a SPA responsive site optimized for all display sizes. Wireframing included two pages, but quickly changed to one page with login details on the same page as the game itself.
 

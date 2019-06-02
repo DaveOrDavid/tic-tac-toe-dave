@@ -57,7 +57,7 @@ const onChangePasswordSuccess = () => {
   $('#message').addClass('success')
   $('#change-pw').trigger('reset')
   $('#user-change').empty()
-  $('.col-3').html('')
+  // $('.col-3').html('')
 }
 
 const onChangePasswordFailure = () => {
@@ -66,7 +66,7 @@ const onChangePasswordFailure = () => {
   $('#message').addClass('failure')
   $('#change-pw').trigger('reset')
   $('#user-change').empty()
-  $('.col-3').html('')
+  // $('.col-3').html('')
 }
 
 const onSignOutSuccess = () => {

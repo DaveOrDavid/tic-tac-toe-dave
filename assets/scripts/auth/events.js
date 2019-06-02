@@ -31,8 +31,8 @@ const onChangePassword = event => { // event is the event, and then target is wh
   const formData = getFormFields(form)
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
-    .then(store.game.over = true)
-    .then(store.canPlay = false)
+    // .then(store.game = true)
+    // .then(store.canPlay = false)
     // .then(store.canPlay) = false takes a successful action and changes boolean.
     // kept on events.js auth page with '.then' since this is not a visible ui action,
     // therefore, not adding to ui.js page.
