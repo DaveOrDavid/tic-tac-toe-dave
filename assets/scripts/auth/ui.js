@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  console.log('success', responseData)
+  // console.log('success', responseData)
   $('#message').text('Sign In to Begin Playing')
   $('#message').removeClass()
   $('#message').addClass('success')
