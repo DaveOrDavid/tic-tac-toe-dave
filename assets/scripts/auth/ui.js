@@ -4,6 +4,9 @@ const store = require('../store')
 
 const onSignUpSuccess = responseData => {
   console.log('success', responseData)
+  $('#message').text('Sign In to Begin Playing')
+  $('#message').removeClass()
+  $('#message').addClass('success')
   $('#user-change').text('Sign up successful!')
   $('#user-change').removeClass()
   $('#user-change').addClass('success')
@@ -14,6 +17,8 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
+  $('#message').removeClass()
+  $('#message').addClass('success')
   $('#user-change').text('Sign up failed!')
   $('#user-change').removeClass()
   $('#user-change').addClass('failure')
