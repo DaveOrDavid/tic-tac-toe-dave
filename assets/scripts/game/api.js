@@ -46,9 +46,8 @@ const destroy = (formData) => {
   })
 }
 
-const update = function (index, value) {
-  // const update = function (index) {
-
+// const update = function (index, value) {
+const update = function (index) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -58,16 +57,19 @@ const update = function (index, value) {
     data: {
       'game': {
         'cell': {
-          'index': index,
-          'value': value
+          'index': index
+          // 'value': value
         },
-        'over': false,
+        // 'over': false,
         'value': store.currentPlayer
       },
       'over': store.game.over
     }
   })
 }
+// removed 'value': value; 'over': false ; const update = function (index, value)
+// this will patch over API game over to 'true'
+// this is being completed post-project submission 6/6/19
 
 module.exports = {
   create,
