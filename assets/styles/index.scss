@@ -8,7 +8,12 @@
 
 
 body {
-  background-color: $background-color;
+  background: url('../../../lib/tic-tac-toe-wallpaper-blur.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  // background resize credit https://stackoverflow.com/questions/5662735/stretch-background-image-css;
   color: $font-color;
   font-family: $body-font-family;
   padding: 50px;
@@ -17,16 +22,18 @@ body {
 }
 
 %vertical-cells {
-  border-color: black;
+  border-color: $font-color;
   border-left-style: solid;
   border-right-style: solid;
+  border-width: 5px;
   line-height: 100px;
 }
 
 %horizontal-cells {
   border-bottom-style: solid;
-  border-color: black;
+  border-color: $font-color;
   border-top-style: solid;
+  border-width: 5px;
   line-height: 100px;
 }
 
@@ -49,9 +56,13 @@ body {
 }
 
 .col-3 {
+  // background-color: rgba(188, 175, 143, 0.7);
+  color: rgba(218, 165, 32, 1);
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(248, 248, 255, 1);
   display: flex;
   font-family: 'Permanent Marker', cursive;
-  font-size: 60px;
+  font-size: 80px;
   height: 100px;
   justify-content: center;
   text-align: center;
@@ -74,7 +85,13 @@ h1 {
   display: none;
 }
 
-.message-block {
+.message-block  {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#message,
+#user-change {
   min-height: 33px;
 }
 
