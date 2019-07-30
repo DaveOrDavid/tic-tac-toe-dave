@@ -9,19 +9,49 @@ body {
   background-color: $background-color;
   color: $font-color;
   font-family: $font-family;
+  padding: 50px;
 }
 
-// #cole {
-//   padding: 25px;
-//   display: inline-block;
-//   text-align: center;
-//   vertical-align: middle;
-//
-// }
-
-.game-board {
+#cell1 {
+  border-left-style: solid;
+  border-right-style: solid;
   border-color: black;
-  border-style: solid;
+  line-height: 100px;
+}
+
+#cell4 {
+  border-left-style: solid;
+  border-right-style: solid;
+  border-color: black;
+  line-height: 100px;
+}
+
+#cell7 {
+  border-left-style: solid;
+  border-right-style: solid;
+  border-color: black;
+  line-height: 100px;
+}
+
+#cell3 {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: black;
+  line-height: 100px;
+}
+
+#cell4 {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: black;
+  line-height: 100px;
+}
+
+#cell5 {
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: black;
+  line-height: 100px;
 }
 
 .row {
@@ -31,9 +61,6 @@ body {
 
 .col-3 {
   display: flex;
-  line-height: 100px;
-  border-color: black;
-  border-style: solid;
   height: 100px;
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
