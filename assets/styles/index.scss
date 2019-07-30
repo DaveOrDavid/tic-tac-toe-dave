@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 @import '~bootstrap/scss/bootstrap';
 @import 'colors.scss';
 @import 'theme.scss';
@@ -10,13 +11,27 @@ body {
   font-family: $font-family;
 }
 
+// #cole {
+//   padding: 25px;
+//   display: inline-block;
+//   text-align: center;
+//   vertical-align: middle;
+//
+// }
+
 .col-3 {
   display: flex;
+  justify-content: center;
+  line-height: 100px;
   border-color: black;
   border-style: solid;
   height: 100px;
-
+  font-family: 'Permanent Marker', cursive;
+  font-size: 35px;
+  text-align: center;
+  vertical-align: middle;
 }
+
 
 .game-board {
 //  display: flex;
