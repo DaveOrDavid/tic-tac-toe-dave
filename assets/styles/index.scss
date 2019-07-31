@@ -8,11 +8,15 @@
 
 
 body {
-  background: url('../../../lib/tic-tac-toe-wallpaper-blur.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  // background-image: url('../../../lib/tic-tac-toe-wallpaper-blur.jpg');
+  background-image: url('../../lib/tic-tac-toe-wallpaper-blur.jpg');
+  background-repeat: no-repeat;
+  background-attachment: center;
+  background-position: fixed;
   background-size: cover;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
   // background resize credit https://stackoverflow.com/questions/5662735/stretch-background-image-css;
   color: $font-color;
   font-family: $body-font-family;
