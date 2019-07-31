@@ -8,19 +8,16 @@
 
 
 body {
-  // background-image: url('https://i.imgur.com/kWsEX3c.jpg');
-  background-image: url('./public/ttt-bg.jpg');
+  background-image: url('./public/ttt-bg-flip.jpg');
   background-repeat: no-repeat;
   background-attachment: center;
   background-position: fixed;
   background-size: cover;
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
   // background resize credit https://stackoverflow.com/questions/5662735/stretch-background-image-css;
   color: $font-color;
   font-family: $body-font-family;
   padding: 50px;
+  min-height: 100vh;
   max-width: 1262px;
   margin: auto;
 }
