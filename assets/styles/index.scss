@@ -8,7 +8,7 @@
 
 
 body {
-  background-image: url(../../lib/tic-tac-toe-wallpaper-blur.jpg);
+  background: url('../../lib/tic-tac-toe-wallpaper-blur.jpg');
   background-repeat: no-repeat;
   background-attachment: center;
   background-position: fixed;
@@ -59,7 +59,6 @@ body {
 }
 
 .col-3 {
-  // background-color: rgba(188, 175, 143, 0.7);
   color: rgba(218, 165, 32, 1);
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: rgba(248, 248, 255, 1);
