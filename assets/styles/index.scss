@@ -8,7 +8,7 @@
 
 
 body {
-  background: url('../../lib/tic-tac-toe-wallpaper-blur.jpg');
+  background-image: $background-image;
   background-repeat: no-repeat;
   background-attachment: center;
   background-position: fixed;
