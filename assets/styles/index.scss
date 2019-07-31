@@ -8,7 +8,8 @@
 
 
 body {
-  // background-image: url('../../lib/tic-tac-toe-wallpaper-blur.jpg');
+  background: transparent;
+  background-image: url('../../lib/tic-tac-toe-wallpaper-blur.jpg');
   background-repeat: no-repeat;
   background-attachment: center;
   background-position: fixed;
@@ -23,8 +24,6 @@ body {
   max-width: 1262px;
   margin: auto;
 }
-
-$body-bg: transparent;
 
 %vertical-cells {
   border-color: $font-color;
