@@ -71,6 +71,7 @@ const onIndexSuccess = responseData => {
   $('#message').html('You\'ve played ' + responseData.games.length + ' games')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#user-change').empty()
 }
 
 const onIndexFailure = responseData => {
