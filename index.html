@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <header>
+          <h1>Tic Tac Toe</h1>
+            <nav>
+              <div class='auth'>
+                <form id='sign-up'>
+                  <h3>Sign Up</h3>
+                  <!-- <form id='sign-up'> // wrapped for jQuery hide()-->
+                    <input name="credentials[email]" type="text" placeholder='Enter New E-mail' required>
+                    <input name="credentials[password]" type="password" placeholder='Password' required>
+                    <input name="credentials[password_confirmation]" type="password" placeholder='Confirm Password' required>
+                    <input type="submit" value="Sign Up">
+                </form>
+                <form id='sign-in'>
+                  <h3>Sign In</h3>
+                  <!-- <form id='sign-in'> // wrapped for jQuery hide()-->
+                    <input name="credentials[email]" type="text" placeholder='Email' required>
+                    <input name="credentials[password]" type="password" placeholder='Password' required>
+                    <input type="submit" value="Sign In">
+                </form>
+              </div>
+
+              <div class='in-game'>
+                <form id='change-pw'>
+                  <h3>Change Password</h3>
+                  <!-- <form id='change-pw'> // wrapped for jQuery hide()-->
+                    <input type="password" name="passwords[old]" placeholder="Old Password" required>
+                    <input type="password" name="passwords[new]" placeholder="New Password" required>
+                    <input type="submit" value="Change Password">
+                </form>
+                <form id='sign-out'>
+                  <h3>Sign Out</h3>
+                  <!-- <form id='sign-out'> // wrapped for jQuery hide()-->
+                    <input type="submit" value="Sign Out"/>
+                </form>
+                <form id='start-game'>
+                  <h3>Start Game or Restart</h3>
+                  <!-- <form id='start-game'> // wrapped for jQuery hide()-->
+                    <input type="submit" value="Start Game"/>
+                </form>
+                <form id='game-stats'>
+                <h3>Player Stats</h3>
+                  <!-- <form id='game-stats'> // wrapped for jQuery hide()-->
+                    <input type="submit" value="Game Stats"/>
+                </form>
+              </div>
+            </nav>
+        </header>
+        <div class='message-block'> <!-- added div class to modify CSS so block size stays constant -->
+          <h3 id="message">Sign In to Begin Playing</h3>
+          <h3 id="user-change"></h3>
+        </div>
+      <main>
+        <div class="gameboard">
+          <div class="container">
+            <div class="row">
+              <div class="col-3" data-cell-index='0' id="cell0"></div>
+              <div class="col-3" data-cell-index='1' id="cell1"></div>
+              <div class="col-3" data-cell-index='2' id="cell2"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-3" data-cell-index='3' id="cell3"></div>
+              <div class="col-3" data-cell-index='4' id="cell4"></div>
+              <div class="col-3" data-cell-index='5' id="cell5"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-3" data-cell-index='6' id="cell6"></div>
+              <div class="col-3" data-cell-index='7' id="cell7"></div>
+              <div class="col-3" data-cell-index='8' id="cell8"></div>
+            </div>
+          </div>
+        </div>
+        <!-- <section>Player email displayed here</section> -->
+      </main>
+      <footer>
+        <!-- <div>
+          <h3 id="user-change"></h3>
+        </div> -->
+      </footer>
+    </body>
+</html>
